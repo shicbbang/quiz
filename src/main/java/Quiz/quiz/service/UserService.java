@@ -1,0 +1,44 @@
+package Quiz.quiz.service;
+
+import Quiz.quiz.dto.UserDto;
+import Quiz.quiz.entity.UserEntity;
+import Quiz.quiz.repository.UserRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+import org.springframework.util.ObjectUtils;
+
+import java.util.List;
+
+@Service
+@RequiredArgsConstructor
+public class UserService {
+
+    private final UserRepository userRepository;
+
+
+    public void saveUser(UserDto dto) {
+        // dto -> Entity
+        UserEntity entity = UserDto.toDto(dto);
+        // 저장
+        userRepository.save(entity);
+    }
+
+    public List<UserDto> findAllUser() {
+        return userRepository.findAll()
+                .stream()
+                .map(x -> UserDto.fromEntity(x))
+                .toList();
+    }
+
+    public void deleteUser(String email) {
+        userRepository.deleteById(email);
+    }
+
+    public UserDto findOneUser(String email) {
+        UserEntity entity = userRepository.findById(email).orElse(null);
+        if (ObjectUtils.isEmpty(entity)) {
+            return null;
+        }
+        return UserDto.fromEntity(entity);
+    }
+}

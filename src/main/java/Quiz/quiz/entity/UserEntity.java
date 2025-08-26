@@ -1,4 +1,4 @@
-package Quiz.quiz.Entity;
+package Quiz.quiz.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;

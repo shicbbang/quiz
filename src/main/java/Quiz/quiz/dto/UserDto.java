@@ -1,6 +1,6 @@
 package Quiz.quiz.dto;
 
-import Quiz.quiz.Entity.UserEntity;
+import Quiz.quiz.entity.UserEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
