@@ -7,23 +7,20 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "member")
-public class Member {
+@AllArgsConstructor
+@Table(name = "quiz")
+public class QuizEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long no;
-
-    @Column(nullable = false, unique = true)
-    private String id;
+    private Long id;
 
     @Column(nullable = false)
-    private String password;
+    private String content; // 퀴즈 내용
 
     @Column(nullable = false)
-    private int answer;
+    private boolean answer; // 정답 (true = O, false = X)
 
-    @Column(nullable = false)
-    private int answerFalse;
+    private String author;
 }

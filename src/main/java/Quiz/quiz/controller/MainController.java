@@ -1,4 +1,4 @@
 package Quiz.quiz.controller;
 
-public class MainCotroller {
+public class MainController {
 }
